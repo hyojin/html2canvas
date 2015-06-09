@@ -43,7 +43,7 @@ function cloneCanvasContents(ownerDocument, documentClone) {
 
 function removeScriptNodes(parent) {
     [].slice.call(parent.childNodes, 0).filter(isElementNode).forEach(function(node) {
-        if (node.tagName === "SCRIPT") {
+        if (node.tagName === "SCRIPT" || node.tagName === "IFRAME") {
             parent.removeChild(node);
         } else {
             removeScriptNodes(node);
