@@ -16,10 +16,10 @@ var html2canvasCloneIndex = 0;
 function html2canvas(nodeList, options) {
     var index = html2canvasCloneIndex++;
     options = options || {};
+    if (typeof window.define === "function" && window.define.amd) {
+        window.html2canvas = {};
+    }
     if (options.logging) {
-        if (typeof window.define === "function" && window.define.amd) {
-            window.html2canvas = {};
-        }
         window.html2canvas.logging = true;
         window.html2canvas.start = Date.now();
     }
